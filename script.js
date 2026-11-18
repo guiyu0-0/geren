@@ -528,7 +528,7 @@ function initCursor() {
 
 function initHeroMotion() {
   const hero = document.querySelector(".hero");
-  const heading = document.querySelector(".hero-heading");
+  const heading = document.querySelector(".hero-copy");
   if (!hero || !heading) return;
 
   let frame;
