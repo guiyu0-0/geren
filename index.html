@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AIGC 视觉设计师个人作品集 —— 品牌视觉、生成式艺术、动态影像与数字体验。"
+    />
+    <meta name="theme-color" content="#deddd7" />
+    <title>AIGC Visual Designer — Portfolio 2026</title>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-loader" aria-hidden="true">
+      <div class="loader-top">
+        <span>AIGC VISUAL SYSTEM</span>
+        <span>SHANGHAI / 2026</span>
+      </div>
+      <div class="loader-center">
+        <span class="loader-word">CREATING</span>
+        <span class="loader-count">00</span>
+      </div>
+      <div class="loader-bottom">
+        <span>GENERATIVE IMAGE / ART DIRECTION / MOTION</span>
+        <span class="loader-progress"><i></i></span>
+      </div>
+    </div>
+
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="返回首页">
+        <span class="brand-mark">Y/</span>
+        <span class="brand-copy">AIGC VISUAL<br />DESIGNER</span>
+      </a>
+
+      <p class="availability">
+        <span class="availability-dot"></span>
+        AVAILABLE FOR SELECTED PROJECTS
+      </p>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+        <span class="menu-toggle-label">MENU</span>
+        <span class="menu-toggle-icon" aria-hidden="true"></span>
+      </button>
+    </header>
+
+    <div class="menu-panel" id="site-menu" aria-hidden="true">
+      <div class="menu-panel-top">
+        <span>NAVIGATION</span>
+        <span>PORTFOLIO / 2026</span>
+      </div>
+      <nav class="menu-nav" aria-label="主菜单">
+        <a href="#top"><span>01</span>HOME</a>
+        <a href="#about"><span>02</span>ABOUT</a>
+        <a href="#works"><span>03</span>SELECTED WORKS</a>
+        <a href="#contact"><span>04</span>CONTACT</a>
+      </nav>
+      <div class="menu-panel-bottom">
+        <a href="mailto:hello@yourstudio.com">HELLO@YOURSTUDIO.COM</a>
+        <div class="menu-socials">
+          <a href="#" aria-label="小红书">RED</a>
+          <a href="#" aria-label="Behance">BE</a>
+          <a href="#" aria-label="Instagram">IG</a>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero-meta">
+          <span>GENERATIVE IMAGE / ART DIRECTION / MOTION</span>
+          <span class="hero-location">BASED IN SHANGHAI <span id="local-time">00:00</span></span>
+        </div>
+
+        <div class="hero-heading">
+          <div class="hero-line hero-line-top">
+            <span class="hero-word-mask"><span class="hero-word">AIGC</span></span>
+            <span class="hero-side-note">CREATIVE<br />TECHNOLOGIST</span>
+          </div>
+
+          <div class="hero-art" aria-hidden="true" data-cursor="MOVE">
+            <div class="hero-art-orbit">
+              <span>GENERATIVE ART × VISUAL SYSTEMS × DIGITAL CRAFT ×</span>
+            </div>
+            <div class="hero-canvas-wrap">
+              <canvas id="hero-canvas"></canvas>
+            </div>
+            <span class="hero-cross hero-cross-tl">+</span>
+            <span class="hero-cross hero-cross-tr">+</span>
+            <span class="hero-cross hero-cross-bl">+</span>
+            <span class="hero-cross hero-cross-br">+</span>
+          </div>
+
+          <div class="hero-line hero-line-bottom">
+            <span class="hero-word-mask"><span class="hero-word">DESIGNER</span></span>
+            <span class="hero-side-note hero-side-note-right">VISUAL<br />2026</span>
+          </div>
+        </div>
+
+        <div class="hero-footer">
+          <p class="hero-intro">
+            用生成式视觉，把尚未存在的世界带到眼前。<br />
+            专注品牌视觉、AI 影像与数字体验。
+          </p>
+          <a class="scroll-cue" href="#about" aria-label="向下浏览" data-magnetic>
+            <span>SCROLL TO EXPLORE</span>
+            <span class="scroll-cue-arrow">↓</span>
+          </a>
+          <p class="hero-discipline">ART DIRECTION<br />IMAGE GENERATION<br />MOTION DESIGN</p>
+        </div>
+      </section>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track">
+          <span>AI IMAGE</span><i>✳</i><span>BRAND VISION</span><i>✳</i><span>CREATIVE DIRECTION</span><i>✳</i>
+          <span>AI IMAGE</span><i>✳</i><span>BRAND VISION</span><i>✳</i><span>CREATIVE DIRECTION</span><i>✳</i>
+        </div>
+      </div>
+
+      <section class="manifesto section-shell" id="about" aria-labelledby="about-title">
+        <div class="section-index reveal">
+          <span>[ 01 ]</span>
+          <span>ABOUT / APPROACH</span>
+        </div>
+
+        <div class="manifesto-body">
+          <p class="eyebrow reveal">DESIGNING WITH INTELLIGENCE</p>
+          <h2 class="manifesto-title reveal" id="about-title">
+            我不把 AI 当作<br />
+            <span class="outline-word">捷径</span>，而是把它<br />
+            作为一支新的<span class="serif-accent">画笔。</span>
+          </h2>
+          <p class="manifesto-copy reveal">
+            从概念、视觉开发到最终落地，我以艺术指导的审美建立秩序，用生成式工具拓展想象的边界。每一次输出都服务于清晰的叙事，而不是追逐随机效果。
+          </p>
+        </div>
+
+        <div class="capability-list">
+          <article class="capability reveal">
+            <span>[ 01 ]</span>
+            <div>
+              <h3>ART DIRECTION</h3>
+              <p>视觉策略 / 风格设定 / 画面语言</p>
+            </div>
+            <span class="capability-icon">↗</span>
+          </article>
+          <article class="capability reveal">
+            <span>[ 02 ]</span>
+            <div>
+              <h3>GENERATIVE IMAGE</h3>
+              <p>概念视觉 / 商业图像 / 叙事场景</p>
+            </div>
+            <span class="capability-icon">↗</span>
+          </article>
+          <article class="capability reveal">
+            <span>[ 03 ]</span>
+            <div>
+              <h3>MOTION & FILM</h3>
+              <p>动态视觉 / AI 短片 / 品牌内容</p>
+            </div>
+            <span class="capability-icon">↗</span>
+          </article>
+          <article class="capability reveal">
+            <span>[ 04 ]</span>
+            <div>
+              <h3>DIGITAL EXPERIENCE</h3>
+              <p>交互视觉 / 数字发布 / 沉浸体验</p>
+            </div>
+            <span class="capability-icon">↗</span>
+          </article>
+        </div>
+      </section>
+
+      <section class="works section-shell" id="works" aria-labelledby="works-title">
+        <div class="section-index reveal">
+          <span>[ 02 ]</span>
+          <span>SELECTED WORK / 2024—2026</span>
+        </div>
+
+        <div class="works-heading">
+          <h2 id="works-title" class="reveal">SELECTED<br /><span>WORKS</span></h2>
+          <p class="reveal">
+            四个关于人工与自然、记忆与物质的视觉实验。<br />
+            每一帧都从一个明确的概念开始。
+          </p>
+        </div>
+
+        <div class="project-grid">
+          <article
+            class="project project-wide project-light reveal"
+            data-cursor="OPEN"
+            data-project="SYNTHETIC BLOOM"
+            data-art="bloom"
+            data-year="2026"
+            data-discipline="AI CAMPAIGN"
+            data-description="以人工培育的发光花体为核心，建立一套介于自然物与合成材料之间的品牌视觉世界。"
+          >
+            <a class="project-link" href="#contact" aria-label="查看项目 Synthetic Bloom" data-project-open>
+              <div class="project-media">
+                <canvas class="project-canvas" data-art="bloom" aria-hidden="true"></canvas>
+                <div class="project-media-top">
+                  <span>AI CAMPAIGN / 2026</span>
+                  <span>01 / 04</span>
+                </div>
+                <span class="project-open">VIEW<br />CASE ↗</span>
+              </div>
+              <div class="project-caption">
+                <div>
+                  <span class="project-no">01</span>
+                  <h3>SYNTHETIC BLOOM</h3>
+                </div>
+                <p>ART DIRECTION · GENERATIVE IMAGE · RETOUCH</p>
+              </div>
+            </a>
+          </article>
+
+          <article
+            class="project project-tall project-dark reveal"
+            data-cursor="OPEN"
+            data-project="MEMORY FLUID"
+            data-art="memory"
+            data-year="2025"
+            data-discipline="AI FILM"
+            data-description="将记忆转译为持续变形的流体结构，用缓慢运动与失焦画面制造一种近在眼前却无法抓住的情绪。"
+          >
+            <a class="project-link" href="#contact" aria-label="查看项目 Memory Fluid" data-project-open>
+              <div class="project-media">
+                <canvas class="project-canvas" data-art="memory" aria-hidden="true"></canvas>
+                <div class="project-media-top">
+                  <span>AI FILM / 2025</span>
+                  <span>02 / 04</span>
+                </div>
+                <span class="project-open">VIEW<br />CASE ↗</span>
+              </div>
+              <div class="project-caption">
+                <div>
+                  <span class="project-no">02</span>
+                  <h3>MEMORY FLUID</h3>
+                </div>
+                <p>CONCEPT · MOTION · SOUND</p>
+              </div>
+            </a>
+          </article>
+
+          <article
+            class="project project-square project-cool reveal"
+            data-cursor="OPEN"
+            data-project="NEW RELIC"
+            data-art="relic"
+            data-year="2025"
+            data-discipline="PRODUCT VISION"
+            data-description="把未来器物设计成某种考古遗存，以半透明层片、金属微光和冷静构图探索数字物质性的美学。"
+          >
+            <a class="project-link" href="#contact" aria-label="查看项目 New Relic" data-project-open>
+              <div class="project-media">
+                <canvas class="project-canvas" data-art="relic" aria-hidden="true"></canvas>
+                <div class="project-media-top">
+                  <span>PRODUCT VISION / 2025</span>
+                  <span>03 / 04</span>
+                </div>
+                <span class="project-open">VIEW<br />CASE ↗</span>
+              </div>
+              <div class="project-caption">
+                <div>
+                  <span class="project-no">03</span>
+                  <h3>NEW RELIC</h3>
+                </div>
+                <p>VISUAL SYSTEM · CGI · TYPE</p>
+              </div>
+            </a>
+          </article>
+
+          <article
+            class="project project-wide project-red reveal"
+            data-cursor="OPEN"
+            data-project="AFTER NATURE"
+            data-art="nature"
+            data-year="2024"
+            data-discipline="SPECULATIVE SERIES"
+            data-description="一个发生在自然之后的生态想象：有机体、光与热在未知环境中重新组合，形成新的物种秩序。"
+          >
+            <a class="project-link" href="#contact" aria-label="查看项目 After Nature" data-project-open>
+              <div class="project-media">
+                <canvas class="project-canvas" data-art="nature" aria-hidden="true"></canvas>
+                <div class="project-media-top">
+                  <span>SPECULATIVE SERIES / 2024</span>
+                  <span>04 / 04</span>
+                </div>
+                <span class="project-open">VIEW<br />CASE ↗</span>
+              </div>
+              <div class="project-caption">
+                <div>
+                  <span class="project-no">04</span>
+                  <h3>AFTER NATURE</h3>
+                </div>
+                <p>WORLD BUILDING · IMAGE · EXPERIENCE</p>
+              </div>
+            </a>
+          </article>
+        </div>
+
+        <a class="all-projects-link reveal" href="#contact">
+          <span>MORE EXPERIMENTS ON REQUEST</span>
+          <span>↗</span>
+        </a>
+      </section>
+
+      <section class="statement" aria-label="设计理念">
+        <p class="statement-kicker reveal">THE CORE BELIEF</p>
+        <blockquote class="reveal">
+          AI gives us<br />
+          <span>infinite options.</span><br />
+          Design gives them <em>meaning.</em>
+        </blockquote>
+        <span class="statement-mark" aria-hidden="true">✳</span>
+      </section>
+
+      <section class="process section-shell" aria-labelledby="process-title">
+        <div class="section-index reveal">
+          <span>[ 03 ]</span>
+          <span>HOW I WORK</span>
+        </div>
+        <h2 class="process-title reveal" id="process-title">FROM SIGNAL<br />TO <span class="serif-accent">SYSTEM.</span></h2>
+        <div class="process-steps">
+          <article class="process-step reveal">
+            <span>01 / DISCOVER</span>
+            <h3>找到真正的问题</h3>
+            <p>从品牌、受众与传播场景出发，定义视觉需要完成的叙事任务。</p>
+          </article>
+          <article class="process-step reveal">
+            <span>02 / DIRECT</span>
+            <h3>建立视觉方向</h3>
+            <p>将模糊的想象转化为清晰的艺术方向，并快速完成风格探索。</p>
+          </article>
+          <article class="process-step reveal">
+            <span>03 / BUILD</span>
+            <h3>形成完整系统</h3>
+            <p>跨越图像、动态、字体与版式，让每一处输出保持同一套视觉逻辑。</p>
+          </article>
+          <article class="process-step reveal">
+            <span>04 / DELIVER</span>
+            <h3>让作品准确落地</h3>
+            <p>以可执行的规范和细节控制，让概念在不同媒介中保持质感。</p>
+          </article>
+        </div>
+      </section>
+
+      <footer class="contact" id="contact">
+        <div class="contact-top">
+          <span>HAVE A PROJECT IN MIND?</span>
+          <span>SHANGHAI / CHINA / GMT+8</span>
+        </div>
+
+        <a class="contact-title" href="mailto:hello@yourstudio.com" aria-label="发送邮件联系我">
+          <span>LET'S</span>
+          <span>MAKE IT <em>REAL</em><sup>↗</sup></span>
+        </a>
+
+        <div class="contact-details">
+          <div>
+            <span>EMAIL</span>
+            <a href="mailto:hello@yourstudio.com">HELLO@YOURSTUDIO.COM</a>
+          </div>
+          <div>
+            <span>SOCIAL</span>
+            <div class="contact-social-links">
+              <a href="#">RED</a>
+              <a href="#">BEHANCE</a>
+              <a href="#">INSTAGRAM</a>
+            </div>
+          </div>
+          <a class="back-to-top" href="#top">BACK TO TOP ↑</a>
+        </div>
+
+        <div class="contact-bottom">
+          <span>© 2026 YOUR NAME</span>
+          <span>AIGC VISUAL DESIGNER</span>
+          <span>ALL RIGHTS RESERVED</span>
+        </div>
+      </footer>
+    </main>
+
+    <div
+      class="project-modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-modal-title"
+      aria-hidden="true"
+    >
+      <button class="project-modal-backdrop" type="button" aria-label="关闭项目预览"></button>
+      <div class="project-modal-panel">
+        <div class="project-modal-media">
+          <canvas id="modal-canvas" aria-hidden="true"></canvas>
+          <div class="project-modal-media-top">
+            <span id="project-modal-discipline">AI CAMPAIGN</span>
+            <span>PORTFOLIO / 2026</span>
+          </div>
+        </div>
+        <div class="project-modal-content">
+          <button class="project-modal-close" type="button" aria-label="关闭项目预览">
+            <span>CLOSE</span>
+            <i aria-hidden="true"></i>
+          </button>
+          <div class="project-modal-index">
+            <span id="project-modal-number">01 / 04</span>
+            <span id="project-modal-year">2026</span>
+          </div>
+          <h2 id="project-modal-title">SYNTHETIC BLOOM</h2>
+          <p id="project-modal-description"></p>
+          <div class="project-modal-meta">
+            <span>STATUS</span>
+            <span>CONCEPT / SELECTED WORK</span>
+          </div>
+          <a class="project-modal-link" href="#contact">
+            DISCUSS A SIMILAR PROJECT
+            <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
