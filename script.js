@@ -299,7 +299,7 @@ const workPainters = {
 };
 
 function paintAllWorks() {
-  document.querySelectorAll(".project-canvas").forEach((canvas) => {
+  document.querySelectorAll(".project-canvas, .fan-canvas").forEach((canvas) => {
     workPainters[canvas.dataset.art]?.(canvas);
   });
 }
@@ -587,6 +587,52 @@ function initMagneticElements() {
   });
 }
 
+function initFeaturedShowcase() {
+  const stage = document.querySelector(".showcase-stage");
+  if (!stage) return;
+
+  const reveal = () => stage.classList.add("is-visible");
+  if (reducedMotion || !("IntersectionObserver" in window)) {
+    reveal();
+  } else {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((entry) => entry.isIntersecting)) return;
+        reveal();
+        observer.disconnect();
+      },
+      { threshold: 0.22 },
+    );
+    observer.observe(stage);
+  }
+
+  if (window.matchMedia("(pointer: coarse)").matches || reducedMotion) return;
+
+  document.querySelectorAll(".fan-card").forEach((card) => {
+    const inner = card.querySelector(".fan-card-inner");
+    if (!inner) return;
+
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+        const rect = card.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width;
+        const y = (event.clientY - rect.top) / rect.height;
+        inner.style.setProperty("--fan-rx", `${(0.5 - y) * 5}deg`);
+        inner.style.setProperty("--fan-ry", `${(x - 0.5) * 6}deg`);
+        inner.style.setProperty("--fan-mx", `${x * 100}%`);
+        inner.style.setProperty("--fan-my", `${y * 100}%`);
+      },
+      { passive: true },
+    );
+
+    card.addEventListener("pointerleave", () => {
+      inner.style.setProperty("--fan-rx", "0deg");
+      inner.style.setProperty("--fan-ry", "0deg");
+    });
+  });
+}
+
 function initProjectTilt() {
   if (window.matchMedia("(pointer: coarse)").matches || reducedMotion) return;
 
@@ -782,6 +828,7 @@ initMenu();
 initCursor();
 initHeroMotion();
 initMagneticElements();
+initFeaturedShowcase();
 initProjectTilt();
 initProjectModal();
 initReveals();
