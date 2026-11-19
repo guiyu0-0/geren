@@ -8,6 +8,10 @@
       content="AIGC 视觉设计师个人作品集 —— 品牌视觉、生成式艺术、动态影像与数字体验。"
     />
     <meta name="theme-color" content="#deddd7" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230b0b0b'/%3E%3Cpath d='M32 8l4.5 19.5L56 32l-19.5 4.5L32 56l-4.5-19.5L8 32l19.5-4.5z' fill='%23ff5b2e'/%3E%3C/svg%3E"
+    />
     <title>AIGC Visual Designer — Portfolio 2026</title>
     <script>
       document.documentElement.classList.add("js");
@@ -31,6 +35,7 @@
     </div>
 
     <div class="noise" aria-hidden="true"></div>
+    <canvas class="click-spark" aria-hidden="true"></canvas>
     <div class="cursor" aria-hidden="true"><span>VIEW</span></div>
     <div class="scroll-progress" aria-hidden="true"></div>
 
@@ -185,7 +190,8 @@
           <div class="fan-deck">
             <a
               class="fan-card fan-card-bloom"
-              href="#contact"
+              href="#work/bloom"
+              draggable="false"
               data-cursor="VIEW"
               data-project-open
               data-project="SYNTHETIC BLOOM"
@@ -210,7 +216,8 @@
 
             <a
               class="fan-card fan-card-memory"
-              href="#contact"
+              href="#work/memory"
+              draggable="false"
               data-cursor="VIEW"
               data-project-open
               data-project="MEMORY FLUID"
@@ -235,7 +242,8 @@
 
             <a
               class="fan-card fan-card-relic"
-              href="#contact"
+              href="#work/relic"
+              draggable="false"
               data-cursor="VIEW"
               data-project-open
               data-project="NEW RELIC"
@@ -260,7 +268,8 @@
 
             <a
               class="fan-card fan-card-nature"
-              href="#contact"
+              href="#work/nature"
+              draggable="false"
               data-cursor="VIEW"
               data-project-open
               data-project="AFTER NATURE"
@@ -283,7 +292,7 @@
               </div>
             </a>
 
-            <a class="fan-card fan-card-archive" href="#works" data-cursor="ALL">
+            <a class="fan-card fan-card-archive" href="#works" draggable="false" data-cursor="ALL">
               <div class="fan-card-inner">
                 <div class="archive-lines" aria-hidden="true"></div>
                 <div class="fan-card-top">
@@ -392,7 +401,7 @@
             data-discipline="AI CAMPAIGN"
             data-description="以人工培育的发光花体为核心，建立一套介于自然物与合成材料之间的品牌视觉世界。"
           >
-            <a class="project-link" href="#contact" aria-label="查看项目 Synthetic Bloom" data-project-open>
+            <a class="project-link" href="#work/bloom" draggable="false" aria-label="查看项目 Synthetic Bloom" data-project-open>
               <div class="project-media">
                 <canvas class="project-canvas" data-art="bloom" aria-hidden="true"></canvas>
                 <div class="project-media-top">
@@ -420,7 +429,7 @@
             data-discipline="AI FILM"
             data-description="将记忆转译为持续变形的流体结构，用缓慢运动与失焦画面制造一种近在眼前却无法抓住的情绪。"
           >
-            <a class="project-link" href="#contact" aria-label="查看项目 Memory Fluid" data-project-open>
+            <a class="project-link" href="#work/memory" draggable="false" aria-label="查看项目 Memory Fluid" data-project-open>
               <div class="project-media">
                 <canvas class="project-canvas" data-art="memory" aria-hidden="true"></canvas>
                 <div class="project-media-top">
@@ -448,7 +457,7 @@
             data-discipline="PRODUCT VISION"
             data-description="把未来器物设计成某种考古遗存，以半透明层片、金属微光和冷静构图探索数字物质性的美学。"
           >
-            <a class="project-link" href="#contact" aria-label="查看项目 New Relic" data-project-open>
+            <a class="project-link" href="#work/relic" draggable="false" aria-label="查看项目 New Relic" data-project-open>
               <div class="project-media">
                 <canvas class="project-canvas" data-art="relic" aria-hidden="true"></canvas>
                 <div class="project-media-top">
@@ -476,7 +485,7 @@
             data-discipline="SPECULATIVE SERIES"
             data-description="一个发生在自然之后的生态想象：有机体、光与热在未知环境中重新组合，形成新的物种秩序。"
           >
-            <a class="project-link" href="#contact" aria-label="查看项目 After Nature" data-project-open>
+            <a class="project-link" href="#work/nature" draggable="false" aria-label="查看项目 After Nature" data-project-open>
               <div class="project-media">
                 <canvas class="project-canvas" data-art="nature" aria-hidden="true"></canvas>
                 <div class="project-media-top">
@@ -577,44 +586,147 @@
       </footer>
     </main>
 
-    <div
-      class="project-modal"
+    <section
+      class="case-study"
+      id="case-study"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="project-modal-title"
+      aria-labelledby="case-title"
       aria-hidden="true"
+      tabindex="-1"
     >
-      <button class="project-modal-backdrop" type="button" aria-label="关闭项目预览"></button>
-      <div class="project-modal-panel">
-        <div class="project-modal-media">
-          <canvas id="modal-canvas" aria-hidden="true"></canvas>
-          <div class="project-modal-media-top">
-            <span id="project-modal-discipline">AI CAMPAIGN</span>
-            <span>PORTFOLIO / 2026</span>
-          </div>
-        </div>
-        <div class="project-modal-content">
-          <button class="project-modal-close" type="button" aria-label="关闭项目预览">
+      <div class="case-scroll" data-case-scroll>
+        <header class="case-bar">
+          <button class="case-back" type="button" data-case-close>
+            <span class="case-back-arrow" aria-hidden="true">←</span>
+            <span>BACK TO INDEX</span>
+          </button>
+          <span class="case-bar-center">
+            <i aria-hidden="true"></i>
+            CASE STUDY
+            <span id="case-progress">01 / 04</span>
+          </span>
+          <button class="case-close" type="button" aria-label="关闭案例" data-case-close>
             <span>CLOSE</span>
             <i aria-hidden="true"></i>
           </button>
-          <div class="project-modal-index">
-            <span id="project-modal-number">01 / 04</span>
-            <span id="project-modal-year">2026</span>
+        </header>
+
+        <article class="case-hero">
+          <div class="case-hero-media">
+            <canvas id="case-canvas" aria-hidden="true"></canvas>
           </div>
-          <h2 id="project-modal-title">SYNTHETIC BLOOM</h2>
-          <p id="project-modal-description"></p>
-          <div class="project-modal-meta">
-            <span>STATUS</span>
-            <span>CONCEPT / SELECTED WORK</span>
+          <div class="case-hero-grid" aria-hidden="true"></div>
+          <div class="case-hero-media-top">
+            <span id="case-art-label">AI CAMPAIGN / 01</span>
+            <span>IMG / <span id="case-hero-year">2026</span></span>
           </div>
-          <a class="project-modal-link" href="#contact">
-            DISCUSS A SIMILAR PROJECT
-            <span>↗</span>
-          </a>
-        </div>
+
+          <div class="case-hero-copy">
+            <div class="case-hero-kicker">
+              <span id="case-kicker">AI CAMPAIGN / BRAND WORLD</span>
+              <span id="case-year">2026</span>
+            </div>
+
+            <h2 class="case-title" id="case-title">
+              <span class="case-title-line"><span id="case-title-a">SYNTHETIC</span></span>
+              <span class="case-title-line case-title-line-alt"><span id="case-title-b">BLOOM</span></span>
+            </h2>
+
+            <div class="case-hero-aside">
+              <p class="case-lede" id="case-lede"></p>
+              <div class="case-hero-foot">
+                <span>SCROLL TO EXPLORE</span>
+                <span aria-hidden="true">↓</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <section class="case-concept">
+          <div class="case-section-tag">
+            <span>[ 01 ]</span>
+            <span>CONCEPT &amp; DIRECTION</span>
+          </div>
+          <div class="case-concept-grid">
+            <h3 id="case-concept-title"></h3>
+            <div class="case-concept-copy">
+              <p id="case-para-1"></p>
+              <p id="case-para-2"></p>
+              <blockquote class="case-quote" id="case-quote"></blockquote>
+            </div>
+          </div>
+        </section>
+
+        <section class="case-frames">
+          <div class="case-section-tag">
+            <span>[ 02 ]</span>
+            <span>SELECTED FRAMES</span>
+          </div>
+          <div class="case-frame-grid">
+            <figure class="case-frame case-frame-a">
+              <div class="case-frame-media"><canvas data-case-frame="0" aria-hidden="true"></canvas></div>
+              <figcaption>
+                <span data-case-frame-caption>FRAME 01</span>
+                <span data-case-frame-note>PETAL STUDY</span>
+              </figcaption>
+            </figure>
+            <figure class="case-frame case-frame-b">
+              <div class="case-frame-media"><canvas data-case-frame="1" aria-hidden="true"></canvas></div>
+              <figcaption>
+                <span data-case-frame-caption>FRAME 02</span>
+                <span data-case-frame-note>LIGHT TEST</span>
+              </figcaption>
+            </figure>
+            <figure class="case-frame case-frame-c">
+              <div class="case-frame-media"><canvas data-case-frame="2" aria-hidden="true"></canvas></div>
+              <figcaption>
+                <span data-case-frame-caption>FRAME 03</span>
+                <span data-case-frame-note>SYSTEM DETAIL</span>
+              </figcaption>
+            </figure>
+          </div>
+        </section>
+
+        <section class="case-facts">
+          <div class="case-section-tag">
+            <span>[ 03 ]</span>
+            <span>PROJECT NOTES</span>
+          </div>
+          <div class="case-facts-grid">
+            <dl class="case-spec">
+              <div><dt>YEAR</dt><dd id="case-fact-year">2026</dd></div>
+              <div><dt>ROLE</dt><dd id="case-fact-role"></dd></div>
+              <div><dt>CLIENT</dt><dd id="case-fact-client"></dd></div>
+              <div><dt>SCOPE</dt><dd id="case-fact-scope"></dd></div>
+              <div><dt>TOOLS</dt><dd id="case-fact-tools"></dd></div>
+              <div><dt>STATUS</dt><dd>SELECTED WORK / 2024—2026</dd></div>
+            </dl>
+            <div>
+              <p class="case-tags-label">DISCIPLINES</p>
+              <div class="case-tags" id="case-tags"></div>
+            </div>
+          </div>
+        </section>
+
+        <a class="case-next" href="#works" data-case-next>
+          <div class="case-next-media">
+            <canvas id="case-next-canvas" aria-hidden="true"></canvas>
+          </div>
+          <div class="case-next-copy">
+            <span class="case-next-kicker">NEXT PROJECT <span aria-hidden="true">↗</span></span>
+            <strong class="case-next-title" id="case-next-title"></strong>
+            <span class="case-next-meta" id="case-next-meta"></span>
+          </div>
+        </a>
+
+        <footer class="case-footer">
+          <span>IMGUIYU / AIGC VISUAL DESIGNER</span>
+          <span>PORTFOLIO 2026</span>
+          <button type="button" data-case-top>BACK TO TOP ↑</button>
+        </footer>
       </div>
-    </div>
+    </section>
 
     <script src="script.js"></script>
   </body>
