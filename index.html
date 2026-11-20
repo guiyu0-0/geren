@@ -51,10 +51,16 @@
         <span>✳ ALIVE</span>
       </p>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
-        <span class="menu-toggle-label">MENU</span>
-        <span class="menu-toggle-icon" aria-hidden="true"></span>
-      </button>
+      <div class="header-actions">
+        <a class="header-contact" href="#contact">
+          <span>联系我</span>
+          <i aria-hidden="true">↗</i>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+          <span class="menu-toggle-label">MENU</span>
+          <span class="menu-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
     </header>
 
     <div class="menu-panel" id="site-menu" aria-hidden="true">
@@ -105,14 +111,17 @@
             </h1>
 
             <div class="hero-subline">
-              <span>视觉造梦 / 想象有界</span>
+              <span class="hero-name-line">
+                <strong class="hero-name">沈嘉俊</strong>
+                <span class="hero-name-sub">/ 个人作品集</span>
+              </span>
               <span class="hero-badge">AIGC VISUAL LAB <i>↗</i></span>
             </div>
 
             <div class="hero-mini-columns">
-              <p><span>CRE-ACTIVE</span>ARTIFICIAL<br />IMAGINATION</p>
-              <p><span>INSPIRE</span>VISUAL SYSTEMS<br />POSSIBLE FUTURES</p>
-              <p><span>IMGUIYU</span>ART DIRECTION<br />DIGITAL CRAFT</p>
+              <p><span>CREATE 创造</span>DESIGN 设计<br />MYSELF 自我</p>
+              <p><span>VISUAL 视觉</span>INTERFACE 界面<br />BRAND 品牌</p>
+              <p><span>EXPLORE 探索</span>DETAILS 细节<br />STORY 故事</p>
             </div>
           </div>
 
@@ -151,18 +160,132 @@
               <i></i><i></i><i></i>
             </div>
             <p>
-              AI 是媒介，判断力是系统。以清晰的艺术指导连接生成图像、品牌叙事与数字体验。
+              使用点、线、面将你的想法以完美的方式展现出来。
             </p>
           </article>
           <p class="hero-intro">
-            欢迎进入一个不断生成中的视觉空间。<br />
-            这里展示人工想象与设计秩序相遇的方式。
+            欢迎进入到我的个人网站。<br />
+            你可以在这里看到我将我的想法以具象形式的展现。
           </p>
-          <a class="scroll-cue" href="#about" aria-label="向下浏览" data-magnetic>
+          <a class="scroll-cue" href="#index" aria-label="向下浏览目录" data-magnetic>
             <span>SCROLL TO EXPLORE</span>
             <span class="scroll-cue-arrow">↓</span>
           </a>
           <p class="hero-discipline">ART DIRECTION<br />IMAGE GENERATION<br />MOTION DESIGN</p>
+        </div>
+      </section>
+
+      <section class="index-desk" id="index" aria-labelledby="index-title">
+        <div class="index-desk-grid" aria-hidden="true"></div>
+        <div class="index-desk-glow" aria-hidden="true"></div>
+
+        <div class="index-desk-top">
+          <span><i></i> TABLE OF CONTENTS / 目录</span>
+          <span>04 FILES / PORTFOLIO 2026</span>
+        </div>
+
+        <h2 class="visually-hidden" id="index-title">作品目录</h2>
+
+        <div class="index-stage">
+          <div class="index-papers" id="index-papers" aria-hidden="true">
+            <a
+              class="index-paper"
+              href="#work/bloom"
+              draggable="false"
+              data-project-open
+              data-cursor="VIEW"
+              data-art="bloom"
+              aria-label="查看 UI 设计"
+            >
+              <span class="index-paper-sheet index-paper-sheet-img">
+                <img
+                  src="assets/index-01.png"
+                  alt="01 UI设计 2026 / app项目设计 / 网页设计 / 动效设计"
+                  draggable="false"
+                />
+              </span>
+            </a>
+
+            <a
+              class="index-paper"
+              href="#work/memory"
+              draggable="false"
+              data-project-open
+              data-cursor="VIEW"
+              data-art="memory"
+              aria-label="查看平面设计"
+            >
+              <span class="index-paper-sheet index-paper-sheet-img">
+                <img
+                  src="assets/index-02.png"
+                  alt="02 平面设计 2026 / 品牌设计 / ip设计 / 包装设计"
+                  draggable="false"
+                />
+              </span>
+            </a>
+
+            <a
+              class="index-paper"
+              href="#work/relic"
+              draggable="false"
+              data-project-open
+              data-cursor="VIEW"
+              data-art="relic"
+              aria-label="查看电商设计"
+            >
+              <span class="index-paper-sheet index-paper-sheet-img">
+                <img
+                  src="assets/index-03.png"
+                  alt="03 电商设计 2026 / 国内外电商设计 / H5设计"
+                  draggable="false"
+                />
+              </span>
+            </a>
+
+            <a
+              class="index-paper"
+              href="#work/nature"
+              draggable="false"
+              data-project-open
+              data-cursor="VIEW"
+              data-art="nature"
+              aria-label="查看其他设计"
+            >
+              <span class="index-paper-sheet index-paper-sheet-img">
+                <img
+                  src="assets/index-04.png"
+                  alt="04 其他设计 2026 / 字体设计 / 海报设计 / 三维设计"
+                  draggable="false"
+                />
+              </span>
+            </a>
+          </div>
+
+          <button
+            class="index-folder"
+            type="button"
+            aria-expanded="false"
+            aria-controls="index-papers"
+            aria-label="打开作品目录"
+            data-cursor="OPEN"
+          >
+            <span class="index-folder-papers" aria-hidden="true">
+              <i></i><i></i><i></i>
+            </span>
+            <img class="index-folder-img" src="assets/folder.png" alt="" draggable="false" />
+            <img
+              class="index-folder-empty"
+              src="assets/folder-empty.png"
+              alt=""
+              draggable="false"
+            />
+          </button>
+        </div>
+
+        <div class="index-desk-foot">
+          <span>SELECTED WORKS / 2024—2026</span>
+          <span class="index-foot-open">CLICK THE PACKAGE TO OPEN <i>↗</i></span>
+          <span class="index-foot-close">CLICK AGAIN TO CLOSE <i>↙</i></span>
         </div>
       </section>
 
@@ -187,130 +310,11 @@
             <span></span>
           </div>
 
-          <div class="fan-deck">
-            <a
-              class="fan-card fan-card-bloom"
-              href="#work/bloom"
-              draggable="false"
-              data-cursor="VIEW"
-              data-project-open
-              data-project="SYNTHETIC BLOOM"
-              data-art="bloom"
-              data-year="2026"
-              data-discipline="AI CAMPAIGN"
-              data-description="以人工培育的发光花体为核心，建立一套介于自然物与合成材料之间的品牌视觉世界。"
-            >
-              <div class="fan-card-inner">
-                <canvas class="fan-canvas" data-art="bloom" aria-hidden="true"></canvas>
-                <div class="fan-card-top">
-                  <span>01 / 04</span>
-                  <span>AI CAMPAIGN</span>
-                </div>
-                <div class="fan-card-copy">
-                  <span>2026</span>
-                  <h3>SYNTHETIC<br />BLOOM</h3>
-                  <p>ART DIRECTION · IMAGE</p>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="fan-card fan-card-memory"
-              href="#work/memory"
-              draggable="false"
-              data-cursor="VIEW"
-              data-project-open
-              data-project="MEMORY FLUID"
-              data-art="memory"
-              data-year="2025"
-              data-discipline="AI FILM"
-              data-description="将记忆转译为持续变形的流体结构，用缓慢运动与失焦画面制造一种近在眼前却无法抓住的情绪。"
-            >
-              <div class="fan-card-inner">
-                <canvas class="fan-canvas" data-art="memory" aria-hidden="true"></canvas>
-                <div class="fan-card-top">
-                  <span>02 / 04</span>
-                  <span>AI FILM</span>
-                </div>
-                <div class="fan-card-copy">
-                  <span>2025</span>
-                  <h3>MEMORY<br />FLUID</h3>
-                  <p>CONCEPT · MOTION · SOUND</p>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="fan-card fan-card-relic"
-              href="#work/relic"
-              draggable="false"
-              data-cursor="VIEW"
-              data-project-open
-              data-project="NEW RELIC"
-              data-art="relic"
-              data-year="2025"
-              data-discipline="PRODUCT VISION"
-              data-description="把未来器物设计成某种考古遗存，以半透明层片、金属微光和冷静构图探索数字物质性的美学。"
-            >
-              <div class="fan-card-inner">
-                <canvas class="fan-canvas" data-art="relic" aria-hidden="true"></canvas>
-                <div class="fan-card-top">
-                  <span>03 / 04</span>
-                  <span>PRODUCT VISION</span>
-                </div>
-                <div class="fan-card-copy">
-                  <span>2025</span>
-                  <h3>NEW<br />RELIC</h3>
-                  <p>VISUAL SYSTEM · CGI · TYPE</p>
-                </div>
-              </div>
-            </a>
-
-            <a
-              class="fan-card fan-card-nature"
-              href="#work/nature"
-              draggable="false"
-              data-cursor="VIEW"
-              data-project-open
-              data-project="AFTER NATURE"
-              data-art="nature"
-              data-year="2024"
-              data-discipline="SPECULATIVE SERIES"
-              data-description="一个发生在自然之后的生态想象：有机体、光与热在未知环境中重新组合，形成新的物种秩序。"
-            >
-              <div class="fan-card-inner">
-                <canvas class="fan-canvas" data-art="nature" aria-hidden="true"></canvas>
-                <div class="fan-card-top">
-                  <span>04 / 04</span>
-                  <span>SPECULATIVE</span>
-                </div>
-                <div class="fan-card-copy">
-                  <span>2024</span>
-                  <h3>AFTER<br />NATURE</h3>
-                  <p>WORLD BUILDING · IMAGE</p>
-                </div>
-              </div>
-            </a>
-
-            <a class="fan-card fan-card-archive" href="#works" draggable="false" data-cursor="ALL">
-              <div class="fan-card-inner">
-                <div class="archive-lines" aria-hidden="true"></div>
-                <div class="fan-card-top">
-                  <span>ARCHIVE</span>
-                  <span>2024—2026</span>
-                </div>
-                <div class="archive-copy">
-                  <span>EXPLORE</span>
-                  <strong>ALL<br />WORKS</strong>
-                  <i>↗</i>
-                </div>
-              </div>
-            </a>
-          </div>
+          <div class="fan-deck" id="fan-deck"></div>
         </div>
 
         <div class="featured-footer">
-          <span>04 PROJECTS / 01 OPEN CALL</span>
+          <span>14 PROJECTS / 01 ARCHIVE</span>
           <span>HOVER · SELECT · EXPLORE</span>
           <a href="#works">VIEW ALL WORK <i>↓</i></a>
         </div>
@@ -514,74 +518,167 @@
       <section class="statement" aria-label="设计理念">
         <p class="statement-kicker reveal">THE CORE BELIEF</p>
         <blockquote class="reveal">
-          AI gives us<br />
-          <span>infinite options.</span><br />
-          Design gives them <em>meaning.</em>
+          Ideas give us<br />
+          <span>infinite possibilities.</span><br />
+          Design gives them <em>form.</em>
         </blockquote>
+        <p class="statement-cn reveal">想法带来无限可能，设计使之成型。</p>
         <span class="statement-mark" aria-hidden="true">✳</span>
       </section>
 
-      <section class="process section-shell" aria-labelledby="process-title">
-        <div class="section-index reveal">
-          <span>[ 03 ]</span>
-          <span>HOW I WORK</span>
+      <section class="signal" id="signal" aria-labelledby="signal-title">
+        <div class="signal-feature-wrap reveal">
+          <div class="signal-feature">
+            <span class="signal-feature-inner">
+              <i class="signal-dot" aria-hidden="true"></i>
+              <span>PLACEHOLDER 001</span>
+            </span>
+          </div>
+          <h2 class="signal-sub reveal" id="signal-title">一些有趣的创意化内容探索</h2>
         </div>
-        <h2 class="process-title reveal" id="process-title">FROM SIGNAL<br />TO <span class="serif-accent">SYSTEM.</span></h2>
-        <div class="process-steps">
-          <article class="process-step reveal">
-            <span>01 / DISCOVER</span>
-            <h3>找到真正的问题</h3>
-            <p>从品牌、受众与传播场景出发，定义视觉需要完成的叙事任务。</p>
+
+        <div class="signal-grid">
+          <article class="signal-card reveal" style="--accent: #9cff3f; --media: #5fd3b4">
+            <span class="signal-tag"><i>▣</i> Creative Visuals</span>
+            <h3>创意视觉</h3>
+            <p>AI 时代下技术赋能与视觉表达的融合实践探索</p>
+            <div class="signal-media"><span>PLACEHOLDER 243</span></div>
+            <a class="signal-more" href="#works">查看作品 <i>→</i></a>
           </article>
-          <article class="process-step reveal">
-            <span>02 / DIRECT</span>
-            <h3>建立视觉方向</h3>
-            <p>将模糊的想象转化为清晰的艺术方向，并快速完成风格探索。</p>
+
+          <article class="signal-card reveal" style="--accent: #e8b04b; --media: #d9a441">
+            <span class="signal-tag"><i>▦</i> Form Design</span>
+            <h3>构成设计</h3>
+            <p>极简形态下的点线面与多元视觉的研究</p>
+            <div class="signal-media"><span>PLACEHOLDER 279</span></div>
+            <a class="signal-more" href="#works">查看作品 <i>→</i></a>
           </article>
-          <article class="process-step reveal">
-            <span>03 / BUILD</span>
-            <h3>形成完整系统</h3>
-            <p>跨越图像、动态、字体与版式，让每一处输出保持同一套视觉逻辑。</p>
+
+          <article class="signal-card reveal" style="--accent: #8fb7ff; --media: #a5b4fc">
+            <span class="signal-tag"><i>▤</i> IP scenario</span>
+            <h3>IP及场景</h3>
+            <p>一些 IP 服化道的设计和场景的探究与融合</p>
+            <div class="signal-media"><span>PLACEHOLDER 325</span></div>
+            <a class="signal-more" href="#works">查看作品 <i>→</i></a>
           </article>
-          <article class="process-step reveal">
-            <span>04 / DELIVER</span>
-            <h3>让作品准确落地</h3>
-            <p>以可执行的规范和细节控制，让概念在不同媒介中保持质感。</p>
+
+          <article class="signal-card reveal" style="--accent: #7ed957; --media: #d6c24a">
+            <span class="signal-tag"><i>▥</i> Waterfall Collection</span>
+            <h3>工作项目</h3>
+            <p>2019-2026 设计工作轨迹，走过一些弯路依旧保持 passion</p>
+            <div class="signal-media"><span>PLACEHOLDER 019</span></div>
+            <a class="signal-more" href="#works">查看作品 <i>→</i></a>
+          </article>
+
+          <article class="signal-card reveal" style="--accent: #9cff3f; --media: #9cff3f">
+            <span class="signal-tag"><i>◈</i> Dynamic vision</span>
+            <h3>动态视觉</h3>
+            <p>AI 时代下的各类动态视觉的探索</p>
+            <div class="signal-media"><span>PLACEHOLDER 271</span></div>
+            <a class="signal-more" href="#works">查看作品 <i>→</i></a>
+          </article>
+
+          <article class="signal-card reveal" style="--accent: #b79cff; --media: #c4a7ff">
+            <span class="signal-tag"><i>◆</i> Beyond Design</span>
+            <h3>设计之外</h3>
+            <p>记录设计之外的观察、新时代 AI 技术探索。</p>
+            <div class="signal-media"><span>PLACEHOLDER 017</span></div>
+            <a class="signal-more" href="#works">查看作品 <i>→</i></a>
           </article>
         </div>
       </section>
 
       <footer class="contact" id="contact">
+        <div class="contact-grid-bg" aria-hidden="true"></div>
+        <div class="contact-sphere" aria-hidden="true"></div>
+
         <div class="contact-top">
-          <span>HAVE A PROJECT IN MIND?</span>
-          <span>SHANGHAI / CHINA / GMT+8</span>
+          <span>CONTACT / 联系</span>
+          <span>AVAILABLE FOR WORK 2026</span>
         </div>
 
-        <a class="contact-title" href="mailto:hello@yourstudio.com" aria-label="发送邮件联系我">
-          <span>LET'S</span>
-          <span>MAKE IT <em>REAL</em><sup>↗</sup></span>
-        </a>
+        <div class="contact-main">
+          <p class="contact-index">05 / CONTACT</p>
+          <a class="contact-title" href="mailto:hi@imguiyu.com" aria-label="发送邮件联系我">
+            <span class="contact-title-line">LET'S MAKE IT</span>
+            <span class="contact-title-line contact-title-real"><em>REAL</em></span>
+          </a>
+          <p class="contact-lede">如果你对的作品感兴趣，请联系我。</p>
+        </div>
 
         <div class="contact-details">
-          <div>
-            <span>EMAIL</span>
-            <a href="mailto:hello@yourstudio.com">HELLO@YOURSTUDIO.COM</a>
+          <div class="contact-col">
+            <span class="contact-label">EMAIL / 邮箱</span>
+            <a class="contact-strong" href="mailto:hi@imguiyu.com">2218778864@qq.com</a>
+            <p class="contact-note">合作咨询 · 品牌与商业项目</p>
           </div>
-          <div>
-            <span>SOCIAL</span>
-            <div class="contact-social-links">
-              <a href="#">RED</a>
-              <a href="#">BEHANCE</a>
-              <a href="#">INSTAGRAM</a>
+
+          <div class="contact-col">
+            <span class="contact-label">WECHAT / 微信</span>
+            <div class="contact-wechat">
+              <strong class="contact-strong">imguiyu</strong>
+              <span class="contact-qr" aria-hidden="true">
+                <svg viewBox="0 0 84 84" role="presentation">
+                  <rect width="84" height="84" fill="#fff" />
+                  <g fill="#0b0b0b">
+                    <rect x="4" y="4" width="28" height="28" />
+                    <rect x="8" y="8" width="20" height="20" fill="#fff" />
+                    <rect x="12" y="12" width="12" height="12" />
+                    <rect x="52" y="4" width="28" height="28" />
+                    <rect x="56" y="8" width="20" height="20" fill="#fff" />
+                    <rect x="60" y="12" width="12" height="12" />
+                    <rect x="4" y="52" width="28" height="28" />
+                    <rect x="8" y="56" width="20" height="20" fill="#fff" />
+                    <rect x="12" y="60" width="12" height="12" />
+                    <rect x="36" y="4" width="4" height="4" />
+                    <rect x="44" y="4" width="4" height="4" />
+                    <rect x="36" y="12" width="4" height="4" />
+                    <rect x="40" y="16" width="8" height="4" />
+                    <rect x="36" y="20" width="4" height="8" />
+                    <rect x="44" y="24" width="4" height="4" />
+                    <rect x="36" y="36" width="4" height="4" />
+                    <rect x="40" y="40" width="8" height="8" />
+                    <rect x="52" y="36" width="4" height="4" />
+                    <rect x="60" y="36" width="12" height="4" />
+                    <rect x="76" y="36" width="4" height="4" />
+                    <rect x="52" y="44" width="8" height="4" />
+                    <rect x="68" y="44" width="4" height="8" />
+                    <rect x="76" y="48" width="4" height="4" />
+                    <rect x="52" y="56" width="4" height="8" />
+                    <rect x="60" y="56" width="8" height="4" />
+                    <rect x="72" y="56" width="4" height="4" />
+                    <rect x="40" y="56" width="4" height="4" />
+                    <rect x="36" y="64" width="8" height="4" />
+                    <rect x="48" y="60" width="4" height="8" />
+                    <rect x="56" y="68" width="8" height="4" />
+                    <rect x="68" y="64" width="4" height="8" />
+                    <rect x="76" y="64" width="4" height="4" />
+                    <rect x="36" y="76" width="4" height="4" />
+                    <rect x="44" y="72" width="4" height="4" />
+                    <rect x="52" y="76" width="12" height="4" />
+                    <rect x="72" y="76" width="8" height="4" />
+                  </g>
+                </svg>
+              </span>
             </div>
+            <p class="contact-note">扫码或搜索添加，请注明来意</p>
           </div>
-          <a class="back-to-top" href="#top">BACK TO TOP ↑</a>
+
+          <div class="contact-col">
+            <span class="contact-label">PLATFORMS / 作品平台</span>
+            <ul class="contact-platforms">
+              <li><a href="#"><b>Behance</b><span>@IMGUIYU</span></a></li>
+              <li><a href="#"><b>小红书</b><span>@IMGUIYU</span></a></li>
+              <li><a href="#"><b>Instagram</b><span>@IMGUIYU</span></a></li>
+            </ul>
+            <p class="contact-note">作品与日常更新</p>
+          </div>
         </div>
 
         <div class="contact-bottom">
-          <span>© 2026 YOUR NAME</span>
-          <span>AIGC VISUAL DESIGNER</span>
-          <span>ALL RIGHTS RESERVED</span>
+          <span>© 2026 IMGUIYU. ALL RIGHTS RESERVED.</span>
+          <span class="contact-quote">AI gives us infinite options. Design gives them <em>meaning.</em></span>
+          <a class="back-to-top" href="#top">BACK TO TOP ↑</a>
         </div>
       </footer>
     </main>
@@ -728,6 +825,6 @@
       </div>
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20261120c"></script>
   </body>
 </html>

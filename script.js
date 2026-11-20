@@ -710,7 +710,53 @@ function initSpinShutter() {
   const deck = stage ? stage.querySelector(".fan-deck") : null;
   if (!stage || !deck) return;
 
-  const repeat = 3;
+  // 如果 fan-deck 是空的（动态模式），生成 15 张独立卡片
+  if (!deck.children.length) {
+    const CARD_DATA = [
+      { num: "01 / 15", tag: "BRAND ID",       year: "2026", title: "KABULI\nHEADWEAR",         p: "BRAND · LOGO · LOOKBOOK",    src: "assets/Rectangle 197.png" },
+      { num: "02 / 15", tag: "TRAVEL CAMPAIGN", year: "2026", title: "CITY\nSERIES",             p: "ART DIRECTION · IMAGE",      src: "assets/Rectangle 198.png" },
+      { num: "03 / 15", tag: "PRODUCT SHOT",   year: "2025", title: "HEADWEAR\nSUPPLY",         p: "STILL · COMPOSITION",        src: "assets/Rectangle 199.png" },
+      { num: "04 / 15", tag: "STATION × MS",   year: "2025", title: "POWER\nSTATION",           p: "POSTER · COLLAB",            src: "assets/Rectangle 200.png" },
+      { num: "05 / 15", tag: "PACKAGING",      year: "2025", title: "WHITE CHOCO\nORANGE SLICE", p: "BOX · LABEL · RETOUCH",      src: "assets/Rectangle 201.png" },
+      { num: "06 / 15", tag: "PRODUCT RENDER", year: "2025", title: "XBOX\nELITE",              p: "CGI · HARD SURFACE",         src: "assets/Rectangle 202.png" },
+      { num: "07 / 15", tag: "BRAND FILM",     year: "2024", title: "CRAFTED\nWITH CARE",       p: "MOVIE · STORYBOARD",         src: "assets/Rectangle 203.png" },
+      { num: "08 / 15", tag: "E-COMMERCE",     year: "2024", title: "BAG\nSTORY",               p: "MODEL · PROPS",              src: "assets/Rectangle 204.png" },
+      { num: "09 / 15", tag: "STILL LIFE",     year: "2024", title: "CEREAL\nBOWL",             p: "TABLETOP · LIGHTING",        src: "assets/Rectangle 205.png" },
+      { num: "10 / 15", tag: "3D CONCEPT",     year: "2024", title: "TOY\nWORLD",               p: "CGI · CHARACTER",            src: "assets/Rectangle 206.png" },
+      { num: "11 / 15", tag: "LIFESTYLE",      year: "2023", title: "MORNING\nTABLE",           p: "STILL · COLOR",              src: "assets/Rectangle 207.png" },
+      { num: "12 / 15", tag: "PRODUCT SET",    year: "2023", title: "DESSERT\nARRANGEMENT",     p: "PACK · RENDER",              src: "assets/Rectangle 208.png" },
+      { num: "13 / 15", tag: "PRODUCT VIEW",   year: "2023", title: "SHOE\nDETAIL",             p: "MACRO · RETOUCH",            src: "assets/Rectangle 209.png" },
+      { num: "14 / 15", tag: "INTERIOR SHOT",  year: "2023", title: "DESK\nSETUP",              p: "ENVIRONMENT · LIGHT",        src: "assets/Rectangle 210.png" },
+      { num: "15 / 15", tag: "ARCHIVE",        year: "—",    title: "ALL\nWORKS",               p: "EXPLORE MORE →",             src: "assets/Rectangle 211.png", archive: true },
+    ];
+    CARD_DATA.forEach((d) => {
+      const card = document.createElement("a");
+      card.className = d.archive ? "fan-card fan-card-archive" : "fan-card";
+      card.href = d.archive ? "#works" : "#works";
+      card.setAttribute("draggable", "false");
+      card.setAttribute("data-cursor", d.archive ? "ALL" : "VIEW");
+      card.setAttribute("data-project-open", "");
+      card.innerHTML = `
+        <div class="fan-card-inner">
+          ${d.archive
+            ? '<div class="archive-lines" aria-hidden="true"></div>'
+            : `<img class="fan-canvas" src="${d.src}" alt="" aria-hidden="true" draggable="false" />`}
+          <div class="fan-card-top">
+            <span>${d.num}</span>
+            <span>${d.tag}</span>
+          </div>
+          <div class="${d.archive ? "archive-copy" : "fan-card-copy"}">
+            ${d.archive ? `<span>EXPLORE</span><strong>${d.title.replace("\n", "<br />")}</strong><i>↗</i>` : `<span>${d.year}</span><h3>${d.title.replace("\n", "<br />")}</h3><p>${d.p}</p>`}
+          </div>
+        </div>`;
+      deck.appendChild(card);
+    });
+  }
+
+  // 先清理之前克隆留下的重复卡片
+  deck.querySelectorAll('.fan-card[aria-hidden="true"]').forEach((n) => n.remove());
+
+  const repeat = 1;
   if (repeat > 1) {
     const sources = [...deck.querySelectorAll(".fan-card")];
     for (let round = 1; round < repeat; round += 1) {
@@ -1032,6 +1078,124 @@ function initProjectTilt() {
   });
 }
 
+function initSignalCards() {
+  const grid = document.querySelector(".signal-grid");
+  if (!grid) return;
+  if (window.matchMedia("(pointer: coarse)").matches || reducedMotion) return;
+
+  const cards = [...grid.querySelectorAll(".signal-card")];
+  const STRENGTH = 12;
+  const ROTATE = 3.2;
+
+  cards.forEach((card) => {
+    const state = {
+      tx: 0,
+      ty: 0,
+      rx: 0,
+      ry: 0,
+      targetTx: 0,
+      targetTy: 0,
+      targetRx: 0,
+      targetRy: 0,
+      raf: 0,
+    };
+
+    const step = () => {
+      state.tx += (state.targetTx - state.tx) * 0.16;
+      state.ty += (state.targetTy - state.ty) * 0.16;
+      state.rx += (state.targetRx - state.rx) * 0.16;
+      state.ry += (state.targetRy - state.ry) * 0.16;
+
+      card.style.setProperty("--tx", `${state.tx.toFixed(2)}px`);
+      card.style.setProperty("--ty", `${state.ty.toFixed(2)}px`);
+      card.style.setProperty("--rx", `${state.rx.toFixed(2)}deg`);
+      card.style.setProperty("--ry", `${state.ry.toFixed(2)}deg`);
+
+      const settled =
+        Math.abs(state.targetTx - state.tx) < 0.05 &&
+        Math.abs(state.targetTy - state.ty) < 0.05 &&
+        Math.abs(state.targetRx - state.rx) < 0.05 &&
+        Math.abs(state.targetRy - state.ry) < 0.05;
+
+      state.raf = settled ? 0 : requestAnimationFrame(step);
+    };
+
+    const start = () => {
+      if (!state.raf) state.raf = requestAnimationFrame(step);
+    };
+
+    const reset = () => {
+      grid.classList.remove("has-active");
+      card.classList.remove("is-active");
+      state.targetTx = 0;
+      state.targetTy = 0;
+      state.targetRx = 0;
+      state.targetRy = 0;
+      start();
+    };
+
+    card.addEventListener("pointerenter", () => {
+      grid.classList.add("has-active");
+      card.classList.add("is-active");
+    });
+
+    card.addEventListener(
+      "pointermove",
+      (event) => {
+        const rect = card.getBoundingClientRect();
+        const nx = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        const ny = ((event.clientY - rect.top) / rect.height) * 2 - 1;
+        state.targetTx = nx * STRENGTH;
+        state.targetTy = ny * STRENGTH;
+        state.targetRx = -ny * ROTATE;
+        state.targetRy = nx * ROTATE;
+        start();
+      },
+      { passive: true },
+    );
+
+    card.addEventListener("pointerleave", reset);
+    card.addEventListener("blur", reset);
+  });
+}
+
+function initIndexDesk() {
+  const desk = document.querySelector(".index-desk");
+  const folder = desk?.querySelector(".index-folder");
+  const papers = desk?.querySelector("#index-papers");
+  if (!desk || !folder || !papers) return;
+
+  const setOpen = (open) => {
+    desk.classList.toggle("is-open", open);
+    folder.setAttribute("aria-expanded", String(open));
+    folder.setAttribute("aria-label", open ? "收起作品目录" : "打开作品目录");
+    papers.setAttribute("aria-hidden", String(!open));
+    papers.inert = !open;
+    folder.dataset.cursor = open ? "CLOSE" : "OPEN";
+    const cursor = document.querySelector(".cursor");
+    if (cursor?.classList.contains("is-active")) {
+      cursor.querySelector("span").textContent = folder.dataset.cursor;
+    }
+  };
+
+  setOpen(false);
+
+  folder.addEventListener("click", () => {
+    setOpen(folder.getAttribute("aria-expanded") !== "true");
+  });
+
+  papers.querySelector("[data-index-archive]")?.addEventListener("click", () => {
+    setOpen(false);
+  });
+
+  window.addEventListener("keydown", (event) => {
+    if (event.key !== "Escape" || !desk.classList.contains("is-open")) return;
+    if (document.body.classList.contains("case-open")) return;
+    setOpen(false);
+    folder.focus({ preventScroll: true });
+  });
+}
+
 function initCaseStudy() {
   const overlay = document.querySelector(".case-study");
   if (!overlay) return;
@@ -1151,7 +1315,10 @@ function initCaseStudy() {
 
   const flipFrom = (trigger) => {
     const source = trigger.querySelector(".fan-canvas, .project-canvas");
-    const media = trigger.querySelector(".fan-card-inner") || trigger.querySelector(".project-media");
+    const media =
+      trigger.querySelector(".fan-card-inner") ||
+      trigger.querySelector(".project-media") ||
+      trigger.querySelector(".index-paper-media");
     if (!source || !media || !source.width || !source.height) return;
 
     const from = media.getBoundingClientRect();
@@ -1570,6 +1737,8 @@ initMagneticElements();
 initFeaturedShowcase();
 initSpinShutter();
 initProjectTilt();
+initSignalCards();
+initIndexDesk();
 initCaseStudy();
 initReveals();
 initScrollProgress();
